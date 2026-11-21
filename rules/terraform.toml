@@ -1,0 +1,20 @@
+id = "terraform"
+name = "Terraform"
+short = "Terraform"
+enabled_by_default = true
+lockfile_required = true
+markers = ["*.tf"]
+safe_artifacts = [".terraform"]
+opt_in_artifacts = []
+lockfiles = [".terraform.lock.hcl"]
+
+[[rehydrate]]
+lockfile = ".terraform.lock.hcl"
+program = "terraform"
+args = ["init"]
+label = "Terraform"
+
+[fallback]
+program = "terraform"
+args = ["init"]
+label = "Terraform"

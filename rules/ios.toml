@@ -1,0 +1,20 @@
+id = "ios"
+name = "iOS / CocoaPods"
+short = "iOS"
+enabled_by_default = true
+lockfile_required = true
+markers = ["Podfile"]
+safe_artifacts = ["Pods"]
+opt_in_artifacts = []
+lockfiles = ["Podfile.lock"]
+
+[[rehydrate]]
+lockfile = "Podfile.lock"
+program = "pod"
+args = ["install"]
+label = "CocoaPods"
+
+[fallback]
+program = "pod"
+args = ["install"]
+label = "CocoaPods"

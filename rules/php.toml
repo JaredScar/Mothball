@@ -1,0 +1,20 @@
+id = "php"
+name = "PHP / Composer"
+short = "PHP"
+enabled_by_default = false
+lockfile_required = true
+markers = ["composer.json"]
+safe_artifacts = []
+opt_in_artifacts = ["vendor"]
+lockfiles = ["composer.lock"]
+
+[[rehydrate]]
+lockfile = "composer.lock"
+program = "composer"
+args = ["install"]
+label = "Composer"
+
+[fallback]
+program = "composer"
+args = ["install"]
+label = "Composer"

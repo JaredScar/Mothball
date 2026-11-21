@@ -1,0 +1,14 @@
+id = "gradle"
+name = "Gradle"
+short = "Gradle"
+enabled_by_default = true
+lockfile_required = false
+markers = ["build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts"]
+safe_artifacts = ["build", ".gradle"]
+opt_in_artifacts = []
+lockfiles = []
+
+[fallback]
+program = "gradlew"
+args = ["--offline", "help"]
+label = "Gradle"

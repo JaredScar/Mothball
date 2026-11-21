@@ -1,0 +1,20 @@
+id = "flutter"
+name = "Flutter / Dart"
+short = "Flutter"
+enabled_by_default = true
+lockfile_required = true
+markers = ["pubspec.yaml"]
+safe_artifacts = [".dart_tool", "build"]
+opt_in_artifacts = []
+lockfiles = ["pubspec.lock"]
+
+[[rehydrate]]
+lockfile = "pubspec.lock"
+program = "flutter"
+args = ["pub", "get"]
+label = "Flutter"
+
+[fallback]
+program = "flutter"
+args = ["pub", "get"]
+label = "Flutter"

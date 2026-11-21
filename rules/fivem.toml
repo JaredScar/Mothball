@@ -1,0 +1,14 @@
+id = "fivem"
+name = "FiveM"
+short = "FiveM"
+enabled_by_default = true
+lockfile_required = false
+markers = ["fxmanifest.lua", "__resource.lua"]
+safe_artifacts = []
+opt_in_artifacts = ["dist"]
+lockfiles = []
+
+[fallback]
+program = "npm"
+args = ["ci"]
+label = "FiveM"

@@ -1,0 +1,23 @@
+[package]
+name = "mothball-core"
+version = "0.1.0"
+edition = "2021"
+description = "Scanning, staleness, and safe artifact deletion for Mothball"
+license = "MIT"
+build = "build.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+chrono = "0.4"
+rusqlite = { version = "0.43", features = ["bundled"] }
+toml = "1"
+ignore = "0.4"
+rayon = "1"
+sysinfo = { version = "0.36.1", default-features = false, features = ["system", "disk"] }
+trash = "5"
+remove_dir_all = { version = "1", features = ["parallel"] }
+
+[dev-dependencies]
+tempfile = "3"

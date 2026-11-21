@@ -1,0 +1,11 @@
+{
+  "identifier": "default",
+  "description": "Mothball main window, tray popover, and toast.",
+  "windows": ["main", "tray", "toast"],
+  "permissions": [
+    "core:default",
+    "allow-mothball-commands",
+    "dialog:default",
+    "autostart:default"
+  ]
+}

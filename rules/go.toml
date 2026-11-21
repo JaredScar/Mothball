@@ -1,0 +1,14 @@
+id = "go"
+name = "Go"
+short = "Go"
+enabled_by_default = true
+lockfile_required = false
+markers = ["go.mod"]
+safe_artifacts = []
+opt_in_artifacts = []
+lockfiles = ["go.sum"]
+
+[fallback]
+program = ""
+args = []
+label = "Go"

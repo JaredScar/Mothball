@@ -1,0 +1,14 @@
+id = "unity"
+name = "Unity"
+short = "Unity"
+enabled_by_default = false
+lockfile_required = false
+markers = ["ProjectSettings/ProjectVersion.txt"]
+safe_artifacts = ["Library", "Temp", "Obj", "Logs"]
+opt_in_artifacts = ["Build"]
+lockfiles = []
+
+[fallback]
+program = ""
+args = []
+label = "Unity"

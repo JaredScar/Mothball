@@ -1,0 +1,20 @@
+id = "rust"
+name = "Rust"
+short = "Rust"
+enabled_by_default = true
+lockfile_required = true
+markers = ["Cargo.toml"]
+safe_artifacts = ["target"]
+opt_in_artifacts = []
+lockfiles = ["Cargo.lock"]
+
+[[rehydrate]]
+lockfile = "Cargo.lock"
+program = "cargo"
+args = ["fetch"]
+label = "Cargo"
+
+[fallback]
+program = "cargo"
+args = ["fetch"]
+label = "Cargo"

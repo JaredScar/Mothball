@@ -1,0 +1,28 @@
+[[permission]]
+identifier = "allow-mothball-commands"
+description = "Commands the Mothball windows are allowed to call."
+commands.allow = [
+  "get_dashboard",
+  "get_tray",
+  "list_projects",
+  "scan_roots",
+  "preview_sweep",
+  "run_sweep",
+  "cancel_sweep",
+  "rehydrate",
+  "set_protected",
+  "set_allow_unsafe",
+  "get_history",
+  "export_history",
+  "get_settings",
+  "save_settings",
+  "add_root",
+  "remove_root",
+  "pick_folder",
+  "suggest_roots",
+  "get_caches",
+  "prune_cache",
+  "set_pause",
+  "open_main",
+  "get_toast",
+]

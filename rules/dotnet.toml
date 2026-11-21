@@ -1,0 +1,14 @@
+id = "dotnet"
+name = ".NET"
+short = ".NET"
+enabled_by_default = true
+lockfile_required = false
+markers = ["*.csproj", "*.fsproj", "*.vbproj", "*.sln"]
+safe_artifacts = ["bin", "obj"]
+opt_in_artifacts = []
+lockfiles = ["packages.lock.json"]
+
+[fallback]
+program = "dotnet"
+args = ["restore"]
+label = ".NET"

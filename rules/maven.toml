@@ -1,0 +1,14 @@
+id = "maven"
+name = "Maven"
+short = "Maven"
+enabled_by_default = true
+lockfile_required = false
+markers = ["pom.xml"]
+safe_artifacts = ["target"]
+opt_in_artifacts = []
+lockfiles = []
+
+[fallback]
+program = "mvn"
+args = ["dependency:go-offline"]
+label = "Maven"

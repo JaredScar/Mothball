@@ -1,0 +1,15 @@
+[package]
+name = "mothball-cli"
+version = "0.1.0"
+edition = "2021"
+description = "Mothball command line"
+license = "MIT"
+
+[[bin]]
+name = "mothball"
+path = "src/main.rs"
+
+[dependencies]
+mothball-core = { path = "../core" }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"

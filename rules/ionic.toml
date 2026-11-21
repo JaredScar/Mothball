@@ -1,0 +1,14 @@
+id = "ionic"
+name = "Ionic / Capacitor"
+short = "Ionic"
+enabled_by_default = true
+lockfile_required = false
+markers = ["capacitor.config.ts", "capacitor.config.js", "capacitor.config.json"]
+safe_artifacts = []
+opt_in_artifacts = ["www"]
+lockfiles = []
+
+[fallback]
+program = "npx"
+args = ["cap", "sync"]
+label = "Capacitor"

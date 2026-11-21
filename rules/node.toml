@@ -1,0 +1,68 @@
+id = "node"
+name = "Node / JS"
+short = "Node"
+enabled_by_default = true
+lockfile_required = true
+markers = ["package.json"]
+safe_artifacts = [
+  "node_modules",
+  ".next",
+  ".nuxt",
+  ".svelte-kit",
+  ".angular/cache",
+  ".turbo",
+  ".parcel-cache",
+  ".vite",
+  ".expo",
+  "coverage",
+]
+opt_in_artifacts = ["dist", "build", "out"]
+lockfiles = [
+  "pnpm-lock.yaml",
+  "yarn.lock",
+  "bun.lock",
+  "bun.lockb",
+  "package-lock.json",
+  "npm-shrinkwrap.json",
+]
+
+[[rehydrate]]
+lockfile = "pnpm-lock.yaml"
+program = "pnpm"
+args = ["install", "--frozen-lockfile"]
+label = "pnpm"
+
+[[rehydrate]]
+lockfile = "yarn.lock"
+program = "yarn"
+args = ["install", "--immutable"]
+label = "Yarn"
+
+[[rehydrate]]
+lockfile = "bun.lock"
+program = "bun"
+args = ["install", "--frozen-lockfile"]
+label = "Bun"
+
+[[rehydrate]]
+lockfile = "bun.lockb"
+program = "bun"
+args = ["install", "--frozen-lockfile"]
+label = "Bun"
+
+[[rehydrate]]
+lockfile = "package-lock.json"
+program = "npm"
+args = ["ci"]
+label = "npm"
+
+[[rehydrate]]
+lockfile = "npm-shrinkwrap.json"
+program = "npm"
+args = ["ci"]
+label = "npm"
+
+[fallback]
+program = "npm"
+args = ["install"]
+label = "npm"

@@ -1,0 +1,11 @@
+/target
+/crates/app/gen/
+/ui/node_modules
+/ui/dist
+/ui/.angular
+**/*.db
+**/*.db-*
+.DS_Store
+*.log
+.env
+.env.*

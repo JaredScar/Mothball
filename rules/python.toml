@@ -1,0 +1,38 @@
+id = "python"
+name = "Python"
+short = "Python"
+enabled_by_default = true
+lockfile_required = true
+markers = ["pyproject.toml", "requirements.txt", "setup.py", "Pipfile"]
+safe_artifacts = ["__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".tox"]
+opt_in_artifacts = [".venv", "venv"]
+lockfiles = ["uv.lock", "poetry.lock", "pdm.lock", "Pipfile.lock", "pylock.toml", "requirements.txt"]
+
+[[rehydrate]]
+lockfile = "uv.lock"
+program = "uv"
+args = ["sync"]
+label = "uv"
+
+[[rehydrate]]
+lockfile = "poetry.lock"
+program = "poetry"
+args = ["install"]
+label = "Poetry"
+
+[[rehydrate]]
+lockfile = "Pipfile.lock"
+program = "pipenv"
+args = ["sync"]
+label = "Pipenv"
+
+[[rehydrate]]
+lockfile = "requirements.txt"
+program = "pip"
+args = ["install", "-r", "requirements.txt"]
+label = "pip"
+
+[fallback]
+program = "uv"
+args = ["sync"]
+label = "uv"

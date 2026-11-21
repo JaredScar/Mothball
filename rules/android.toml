@@ -1,0 +1,14 @@
+id = "android"
+name = "Android"
+short = "Android"
+enabled_by_default = true
+lockfile_required = false
+markers = ["android/build.gradle", "android/build.gradle.kts"]
+safe_artifacts = ["android/.gradle", "android/app/build", "android/build"]
+opt_in_artifacts = []
+lockfiles = []
+
+[fallback]
+program = "gradlew"
+args = ["--offline", "help"]
+label = "Android"
