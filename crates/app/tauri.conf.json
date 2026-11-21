@@ -19,11 +19,22 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "publisher": "Mothball",
+    "category": "DeveloperTool",
+    "shortDescription": "Deletes regenerable dev folders from projects you have not touched.",
+    "longDescription": "Mothball finds dev projects you have not touched in a while and deletes only the folders a lockfile can rebuild. Source code stays.",
+    "copyright": "Copyright (c) 2026 Mothball contributors",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
+      "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
   }
 }

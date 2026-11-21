@@ -1,0 +1,71 @@
+name: Release
+
+# Pushing a tag such as v0.1.0 builds the installers and attaches them to
+# that GitHub release. The version string comes from crates/app/tauri.conf.json.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows installer
+            platform: windows-latest
+            args: --bundles nsis
+          - name: macOS installer
+            platform: macos-latest
+            args: --bundles dmg --target universal-apple-darwin
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+
+      - name: Install the interface dependencies
+        working-directory: ui
+        run: npm ci
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Add the macOS build targets
+        if: matrix.platform == 'macos-latest'
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build the installer and publish the release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: crates/app
+          tagName: v__VERSION__
+          releaseName: Mothball v__VERSION__
+          releaseBody: |
+            Installers for Windows and macOS.
+
+            - Windows: run the `*-setup.exe` installer. It installs for the current user.
+            - macOS: open the `.dmg` and drag Mothball to Applications. The disk image is a universal build for Apple silicon and Intel.
+
+            These builds are not code-signed. Windows SmartScreen may warn you; choose More info, then Run anyway. On macOS, right-click Mothball the first time and choose Open.
+          releaseDraft: false
+          prerelease: false
+          args: ${{ matrix.args }}

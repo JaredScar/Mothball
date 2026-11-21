@@ -70,6 +70,21 @@ mothball rehydrate C:\dev\hivemind
 mothball protect C:\dev\perminator
 ```
 
+## Install
+
+Download the latest installer from [GitHub Releases](https://github.com/JaredScar/Mothball/releases/latest).
+
+| System | File |
+| --- | --- |
+| Windows | `Mothball_*_x64-setup.exe` |
+| macOS | `Mothball_*_universal.dmg` |
+
+The Windows installer is per user, so it does not ask for an administrator password. The macOS disk image runs on Apple silicon and Intel. Open it and drag Mothball into Applications.
+
+These builds are not code-signed. Windows SmartScreen may say it protected your PC; choose **More info**, then **Run anyway**. On macOS, right-click Mothball the first time and choose **Open**.
+
+A release is published when a version tag such as `v0.1.0` is pushed. The version is the one in `crates/app/tauri.conf.json`.
+
 ## Build
 
 You need a current Rust toolchain and Node.js 20 or newer. The desktop app is tested on Windows.
