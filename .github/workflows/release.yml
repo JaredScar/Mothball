@@ -68,4 +68,5 @@ jobs:
             These builds are not code-signed. Windows SmartScreen may warn you; choose More info, then Run anyway. On macOS, right-click Mothball the first time and choose Open.
           releaseDraft: false
           prerelease: false
+          includeUpdaterJson: false
           args: ${{ matrix.args }}

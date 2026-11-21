@@ -2,12 +2,18 @@
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "Mothball",
   "version": "0.1.0",
-  "identifier": "com.mothball.app",
+  "identifier": "com.mothball.desktop",
   "build": {
     "frontendDist": "../../ui/dist/ui/browser",
     "devUrl": "http://127.0.0.1:1420",
-    "beforeDevCommand": "npm --prefix ../../ui start",
-    "beforeBuildCommand": "npm --prefix ../../ui run build"
+    "beforeDevCommand": {
+      "script": "npm start",
+      "cwd": "../../ui"
+    },
+    "beforeBuildCommand": {
+      "script": "npm run build",
+      "cwd": "../../ui"
+    }
   },
   "app": {
     "withGlobalTauri": false,
